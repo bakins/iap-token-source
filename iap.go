@@ -38,8 +38,10 @@ type IAP struct {
 	tokenSource oauth2.TokenSource
 }
 
+// Options is passed to New for setting creation options
 type Option func(*IAP) error
 
+// New creates an IAP token source.
 func New(audience string, opts ...Option) (*IAP, error) {
 	i := &IAP{
 		audience:   audience,
@@ -80,10 +82,12 @@ func New(audience string, opts ...Option) (*IAP, error) {
 	return i, nil
 }
 
+// Token returns a token to be used for authentication.
 func (i *IAP) Token() (*oauth2.Token, error) {
 	return i.tokenSource.Token()
 }
 
+// WithPostFormer sets the PostFormer to use when requesting the token.
 func WithPostFormer(p PostFormer) Option {
 	return func(i *IAP) error {
 		i.postFormer = p
@@ -91,6 +95,8 @@ func WithPostFormer(p PostFormer) Option {
 	}
 }
 
+// WithServiceAccountFile sets the Google Service Account Key file to use for requesting a token.
+// By default, the file specified in the environment variable GOOGLE_APPLICATION_CREDENTIALS is used.
 func WithServiceAccountFile(filename string) Option {
 	return func(i *IAP) error {
 		json, err := ioutil.ReadFile(filename)
@@ -104,6 +110,8 @@ func WithServiceAccountFile(filename string) Option {
 	}
 }
 
+// WithServiceAccount sets the  Google Service Account Key to use for requesting a token.
+// By default, the contents of the file specified in the environment variable GOOGLE_APPLICATION_CREDENTIALS is used.
 func WithServiceAccount(json []byte) Option {
 	return func(i *IAP) error {
 		j, err := google.JWTConfigFromJSON(json, i.audience)
