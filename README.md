@@ -22,3 +22,12 @@ By default, the package uses [Application Default Credentials](https://cloud.goo
 variable `GOOGLE_APPLICATION_CREDENTIALS`.
 
 See the [gRPC](./examples/grpc/) and [HTTP](./examples/http/) examples for more information.
+
+## References
+
+* Huge thanks to https://github.com/b4b4r07/iap_curl which provided great examples.
+* https://cloud.google.com/iap/docs/authentication-howto#authenticating_from_a_service_account
+
+## LICENSE
+
+See [LICENSE](./LICENSE)
