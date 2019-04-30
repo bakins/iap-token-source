@@ -1,3 +1,5 @@
+// Package IAP provides an oauth2 token source for authenticating with
+// Google Identity Aware Proxy.
 package iap
 
 import (
