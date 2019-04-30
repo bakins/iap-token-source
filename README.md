@@ -1,6 +1,6 @@
 
 [![GoDoc](https://godoc.org/github.com/bakins/iap-token-source?status.svg)](https://godoc.org/github.com/bakins/iap-token-source)
-
+[![CircleCI](https://circleci.com/gh/bakins/iap-token-source.svg?style=svg)](https://circleci.com/gh/bakins/iap-token-source)
 # iap-token-source
 
 Go package that provides an [oauth2 token source](https://godoc.org/golang.org/x/oauth2#TokenSource) to use
