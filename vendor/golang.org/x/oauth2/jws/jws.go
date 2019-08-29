@@ -90,7 +90,6 @@ func (c *ClaimSet) encode() (string, error) {
 	}
 	b[len(b)-1] = ','         // Replace closing curly brace with a comma.
 	b = append(b, prv[1:]...) // Append private claims.
-
 	return base64.RawURLEncoding.EncodeToString(b), nil
 }
 
