@@ -44,7 +44,7 @@ func main() {
 	audience := os.Args[1]
 	address := os.Args[2]
 
-	iap, err := iap.New(audience)
+	iap, err := iap.New(context.Background(), audience, "")
 	if err != nil {
 		log.Fatalf("failed to create IAP token source: %v", err)
 	}

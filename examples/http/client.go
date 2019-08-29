@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -19,7 +20,7 @@ func main() {
 	audience := os.Args[1]
 	url := os.Args[2]
 
-	iap, err := iap.New(audience)
+	iap, err := iap.New(context.Background(), audience, "")
 	if err != nil {
 		log.Fatalf("failed to create IAP token source: %v", err)
 	}
@@ -36,7 +37,7 @@ func main() {
 		log.Fatalf("failed to get token: %v", err)
 	}
 
-	req.Header.Set("Authorization", token.TokenType+" "+token.AccessToken)
+	req.Header.Set("Authorization", token.Type()+" "+token.AccessToken)
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
