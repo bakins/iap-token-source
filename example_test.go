@@ -9,8 +9,8 @@ import (
 )
 
 func ExampleNew() {
-	clientID := os.Getenv("CLIENT_ID")
-	t, err := New(clientID)
+	audience := os.Getenv("AUDIENCE")
+	t, err := New(context.Background(), audience, "")
 	if err != nil {
 		log.Fatalf("failed to create token source: %v", err)
 	}
