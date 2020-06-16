@@ -1,3 +1,4 @@
+Deprecated:  use https://pkg.go.dev/google.golang.org/api/idtoken?tab=doc
 
 [![GoDoc](https://godoc.org/github.com/bakins/iap-token-source?status.svg)](https://godoc.org/github.com/bakins/iap-token-source)
 [![CircleCI](https://circleci.com/gh/bakins/iap-token-source.svg?style=svg)](https://circleci.com/gh/bakins/iap-token-source)
